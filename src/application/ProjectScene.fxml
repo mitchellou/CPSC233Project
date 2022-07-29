@@ -1,13 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
 
-
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox prefHeight="329.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ScheduleController">
    <children>
-      <Button mnemonicParsing="false" text="Create Schedule" />
+      <HBox prefHeight="44.0" prefWidth="300.0">
+         <children>
+            <Label text="Semester: ">
+               <HBox.margin>
+                  <Insets left="10.0" top="13.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="semesterChoiceBox" prefHeight="25.0" prefWidth="133.0">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+               <items>
+               <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Fall" />
+               <String fx:value="Winter" />
+               <String fx:value="Spring" />
+               <String fx:value="Summer" />
+               </FXCollections>
+               </items>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="52.0" prefWidth="323.0">
+         <children>
+            <Label text="Number of Courses:">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="numberOfCourseCBox" prefHeight="25.0" prefWidth="82.0">
+               <HBox.margin>
+                  <Insets left="5.0" top="7.0" />
+               </HBox.margin>
+               <items>
+                <FXCollections fx:factory="observableArrayList">
+               		<Integer fx:value="1" />
+               		<Integer fx:value="2" />
+               		<Integer fx:value="3" />
+               		<Integer fx:value="4" />
+               		<Integer fx:value="5" />
+               	</FXCollections>
+               </items>
+            </ChoiceBox>
+            <Button mnemonicParsing="false" onAction="#enterCourseInfo" text="Enter Course Info">
+               <HBox.margin>
+                  <Insets left="7.0" top="7.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#createSchedule" text="Create Schedule">
+         <VBox.margin>
+            <Insets left="60.0" top="100.0" />
+         </VBox.margin></Button>
    </children>
 </VBox>
