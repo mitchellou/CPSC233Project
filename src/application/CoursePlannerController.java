@@ -44,11 +44,40 @@ public class CoursePlannerController {
 
     }
     
+    void validCourse(Scene main, TextField courseNameTextfield, TextField courseNumberTextfield) {
+    	
+    	String courseName = courseNameTextfield.getText();
+    	String courseNumber = courseNumberTextfield.getText();
+    	
+    	if(courseName.length() != 4 || courseNumber.length() != 3) {
+    		System.out.println("Invalid Course Information. Make sure Course Name is 4 letters and Course Number is 3 digits.");
+    	} 
+    	
+    	applicationStage.setScene(main);
+		
+    }
     
     @FXML
-    void addCourse(ActionEvent event) {
-
+    void addCourse(ActionEvent addCourseEvent) {
+    	Scene main = applicationStage.getScene();
+    	
+    	HBox courseContainer = new HBox();
+    	Label courseNameLabel = new Label("Enter Course Name");
+    	TextField courseNameTextfield = new TextField();
+    	
+    	Label courseNumberLabel = new Label("Enter Course #");
+    	TextField courseNumberTextfield = new TextField();
+    	
+    	Button done = new Button("Done");
+    	done.setOnAction(doneEvent -> validCourse(main, courseNameTextfield, courseNumberTextfield));
+    	  	
+    	courseContainer.getChildren().addAll(courseNameLabel, courseNameTextfield, courseNumberLabel, courseNumberTextfield, done);
+    	Scene addCourseScene = new Scene(courseContainer);
+    	applicationStage.setScene(addCourseScene);
+    	
+       	
     }
+
 
     @FXML
     void addTutorial(ActionEvent event) {
