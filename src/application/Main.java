@@ -6,7 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.AnchorPane;
 
 
 public class Main extends Application {
@@ -14,12 +14,12 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/application/ProjectScene.fxml"));
-			ScheduleController controller = (ScheduleController) loader.getController();
+			AnchorPane root = loader.load(new FileInputStream("src/application/ProjectScene.fxml"));
+			CoursePlannerController controller = (CoursePlannerController)loader.getController();
 			controller.applicationStage = primaryStage;
-			Scene scene = new Scene(root,400,400);			
-			primaryStage.setTitle("Class Builder");			
+			Scene scene = new Scene(root,800,750);	
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Course Planner");			
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
