@@ -55,6 +55,7 @@
             <Rectangle fx:id="monday4" arcHeight="5.0" arcWidth="5.0" fill="#a32a2ac1" height="51.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <Rectangle fx:id="monday5" arcHeight="5.0" arcWidth="5.0" fill="#a32a2ac1" height="51.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <Rectangle fx:id="monday6" arcHeight="5.0" arcWidth="5.0" fill="#a32a2ac1" height="51.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="152.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Rectangle fx:id="wednesday8" arcHeight="5.0" arcWidth="5.0" fill="#a32a2ac1" height="51.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="152.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Pane prefHeight="100.0" prefWidth="808.0" style="-fx-background-color: CADETBLUE;">
@@ -169,5 +170,7 @@
             <Font size="13.0" />
          </font>
       </Label>
+      <Label fx:id="monday8Label" layoutX="115.0" layoutY="175.0" />
+      <Label fx:id="monday9Label" layoutX="115.0" layoutY="230.0" />
    </children>
 </AnchorPane>
