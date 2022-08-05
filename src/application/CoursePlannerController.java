@@ -35,39 +35,119 @@ public class CoursePlannerController {
 	 	private Label courseNameLabel;
 	 
 	 @FXML
-	 	private Label studentNameLabel;
-	 
+	 	private Label studentNameLabel;	 
 	 @FXML
 		private GridPane grid;
-		
-	 @FXML 
-		private Rectangle monday8;
-	 @FXML 
-		private Rectangle monday9;
-	 @FXML 
-		private Rectangle monday10;
-	 @FXML 
-		private Rectangle monday11;
-	 @FXML 
-		private Rectangle monday12;
-	 @FXML 
-		private Rectangle monday1;
-	 @FXML 
-		private Rectangle monday2;
-	 @FXML 
-		private Rectangle monday3;
-	 @FXML 
-		private Rectangle monday4;
-	 @FXML 
-		private Rectangle monday5;
-	 @FXML 
-		private Rectangle monday6;
-	 @FXML 
-		private Rectangle wednesday8;
 	 @FXML 
 		private Label monday8Label;
 	 @FXML
 	 	private Label monday9Label;
+	 @FXML
+	 	private Label monday10Label;
+	 @FXML
+	 	private Label monday11Label;
+	 @FXML
+	 	private Label monday12Label;
+	 @FXML
+	 	private Label monday1Label;
+	 @FXML
+	 	private Label monday2Label;
+	 @FXML
+	 	private Label monday3Label;
+	 @FXML
+	 	private Label monday4Label;
+	 @FXML
+	 	private Label monday5Label;
+	 @FXML
+	 	private Label monday6Label;
+	 @FXML
+	 	private Label tuesday8Label;
+	 @FXML
+	 	private Label tuesday9Label;
+	 @FXML
+	 	private Label tuesday10Label;
+	 @FXML
+	 	private Label tuesday11Label;
+	 @FXML
+	 	private Label tuesday12Label;
+	 @FXML
+	 	private Label tuesday1Label;
+	 @FXML
+	 	private Label tuesday2Label;
+	 @FXML
+	 	private Label tuesday3Label;
+	 @FXML
+	 	private Label tuesday4Label;
+	 @FXML
+	 	private Label tuesday5Label;
+	 @FXML
+	 	private Label tuesday6Label;
+	 @FXML
+	 	private Label wednesday8Label;
+	 @FXML
+	 	private Label wednesday9Label;
+	 @FXML
+	 	private Label wednesday10Label;
+	 @FXML
+	 	private Label wednesday11Label;
+	 @FXML
+	 	private Label wednesday12Label;
+	 @FXML
+	 	private Label wednesday1Label;
+	 @FXML
+	 	private Label wednesday2Label;
+	 @FXML
+	 	private Label wednesday3Label;
+	 @FXML
+	 	private Label wednesday4Label;
+	 @FXML
+	 	private Label wednesday5Label;
+	 @FXML
+	 	private Label wednesday6Label;
+	 @FXML
+	 	private Label thursday8Label;
+	 @FXML
+	 	private Label thursday9Label;
+	 @FXML
+	 	private Label thursday10Label;
+	 @FXML
+	 	private Label thursday11Label;
+	 @FXML
+	 	private Label thursday12Label;
+	 @FXML
+	 	private Label thursday1Label;
+	 @FXML
+	 	private Label thursday2Label;
+	 @FXML
+	 	private Label thursday3Label;
+	 @FXML
+	 	private Label thursday4Label;
+	 @FXML
+	 	private Label thursday5Label;
+	 @FXML
+	 	private Label thursday6Label;
+	 @FXML
+	 	private Label friday8Label;
+	 @FXML
+	 	private Label friday9Label;
+	 @FXML
+	 	private Label friday10Label;
+	 @FXML
+	 	private Label friday11Label;
+	 @FXML
+	 	private Label friday12Label;
+	 @FXML
+	 	private Label friday1Label;
+	 @FXML
+	 	private Label friday2Label;
+	 @FXML
+	 	private Label friday3Label;
+	 @FXML
+	 	private Label friday4Label;
+	 @FXML
+	 	private Label friday5Label;
+	 @FXML
+	 	private Label friday6Label;
 	 
 	 
 
@@ -128,12 +208,107 @@ public class CoursePlannerController {
     		switch (courseStart) {
     		case 8:
     			monday8Label.setText(courseName + courseNumber);
-    			
-    			
+    			wednesday8Label.setText(courseName + courseNumber);
+    			friday8Label.setText(courseName + courseNumber);
     			break;
     		case 9:
     			monday9Label.setText(courseName + courseNumber);
+    			wednesday9Label.setText(courseName + courseNumber);
+    			friday9Label.setText(courseName + courseNumber);
     			break;
+    		case 10:
+    			monday10Label.setText(courseName + courseNumber);
+    			wednesday10Label.setText(courseName + courseNumber);
+    			friday10Label.setText(courseName + courseNumber);
+    			break;
+    		case 11:
+    			monday11Label.setText(courseName + courseNumber);
+    			wednesday11Label.setText(courseName + courseNumber);
+    			friday11Label.setText(courseName + courseNumber);
+    			break;
+    		case 12:
+    			monday12Label.setText(courseName + courseNumber);
+    			wednesday12Label.setText(courseName + courseNumber);
+    			friday12Label.setText(courseName + courseNumber);
+    			break;
+    		case 1:
+    			monday1Label.setText(courseName + courseNumber);
+    			wednesday1Label.setText(courseName + courseNumber);
+    			friday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 2:
+    			monday2Label.setText(courseName + courseNumber);
+    			wednesday2Label.setText(courseName + courseNumber);
+    			friday2Label.setText(courseName + courseNumber);
+    			break;
+    		case 3:
+    			monday3Label.setText(courseName + courseNumber);
+    			wednesday3Label.setText(courseName + courseNumber);
+    			friday3Label.setText(courseName + courseNumber);
+    			break;
+    		case 4:
+    			monday4Label.setText(courseName + courseNumber);
+    			wednesday4Label.setText(courseName + courseNumber);
+    			friday4Label.setText(courseName + courseNumber);
+    			break;
+    		case 5:
+    			monday5Label.setText(courseName + courseNumber);
+    			wednesday5Label.setText(courseName + courseNumber);
+    			friday5Label.setText(courseName + courseNumber);
+    			break;
+    		case 6:
+    			monday6Label.setText(courseName + courseNumber);
+    			wednesday6Label.setText(courseName + courseNumber);
+    			friday6Label.setText(courseName + courseNumber);
+    			break;
+    		}
+    	} else {
+    		switch(courseStart) {
+    		case 8:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 9:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 10:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 11:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 12:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 1:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 2:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 3:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 4:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 5:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    		case 6:
+    			tuesday1Label.setText(courseName + courseNumber);
+    			thursday1Label.setText(courseName + courseNumber);
+    			break;
+    			
     		}
     	}
     	
