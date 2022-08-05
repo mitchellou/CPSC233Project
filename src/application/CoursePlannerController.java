@@ -1,5 +1,7 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -60,9 +62,12 @@ public class CoursePlannerController {
 		private Rectangle monday5;
 	 @FXML 
 		private Rectangle monday6;
-	 
 	 @FXML 
-		private Label eightAm;
+		private Rectangle wednesday8;
+	 @FXML 
+		private Label monday8Label;
+	 @FXML
+	 	private Label monday9Label;
 	 
 	 
 
@@ -107,16 +112,34 @@ public class CoursePlannerController {
     	}
     	
  
-    void validCourse(Scene main, TextField courseNameTextfield, TextField courseNumberTextfield, TextField courseStartTimeTextfield, TextField courseEndTimeTextfield) {
+    void validCourse(Scene main, TextField courseNameTextfield, TextField courseNumberTextfield, ChoiceBox<Integer> courseStartTimeChoiceBox, ChoiceBox<String> courseDayChoiceBox) {
     	
     	String courseName = courseNameTextfield.getText();
     	String courseNumber = courseNumberTextfield.getText();
+    	int courseStart = courseStartTimeChoiceBox.getValue();
+    	String courseDay = courseDayChoiceBox.getValue();
     	
     	if(courseName.length() != 4 || courseNumber.length() != 3) {
     		System.out.println("Invalid Course Information. Make sure Course Name is 4 letters and Course Number is 3 digits." );
     	} 
     	
     	
+    	if(courseDay == "MWF") {
+    		switch (courseStart) {
+    		case 8:
+    			monday8Label.setText(courseName + courseNumber);
+    			
+    			
+    			break;
+    		case 9:
+    			monday9Label.setText(courseName + courseNumber);
+    			break;
+    		}
+    	}
+    	
+    	
+    	
+    	 
     	applicationStage.setScene(main);
 		
     }
@@ -133,44 +156,25 @@ public class CoursePlannerController {
     	Label courseNumberLabel = new Label("Enter Course #");
     	TextField courseNumberTextfield = new TextField();
     	
-    	//VBox courseContainers = new VBox(10);
-    	Label courseStartTimeLabel = new Label("From");
-    	TextField courseStartTimeTextfield = new TextField();
-    	
-    	Label courseEndTimeLabel = new Label("to");
-    	TextField courseEndTimeTextfield = new TextField();
-    	
+    	Label courseStartTimeLabel = new Label("Start Time");
+    	ChoiceBox<Integer> courseStartTimeChoiceBox = new ChoiceBox();
+    	courseStartTimeChoiceBox.getItems().addAll(8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6);
+    	courseStartTimeChoiceBox.getSelectionModel().clearSelection();
+    	    	
     	Label courseDayLabel = new Label("on");
-    	TextField courseDayTextfield = new TextField();
-//    	ChoiceBox<String> choiceBox = new ChoiceBox<>();
-//    	
-//    	choiceBox.getItems().add("MWF");
-//    	choiceBox.getItems().add("TTh");
     	
-    	   	
+    	ChoiceBox<String> courseDayChoiceBox = new ChoiceBox();
+   	
+    	courseDayChoiceBox.getItems().addAll("MWF", "TTh");
+    	 	
     	Button done = new Button("Done");
-    	done.setOnAction(doneEvent -> validCourse(main, courseNameTextfield, courseNumberTextfield, courseStartTimeTextfield, courseEndTimeTextfield ));
-  
-    	String courseDay = courseDayTextfield.getText();
-    	String threeDays = "MWF"; 
-    	
-    	
-    	String courseStart = (courseStartTimeLabel.getText());
-    	
-    	
-    		if (courseDay.contains(threeDays)) {
-    		if(courseStart == "8")
-    			monday8.setVisible(true);
-    		}	
- 
-    	 
+    	done.setOnAction(doneEvent -> validCourse(main, courseNameTextfield, courseNumberTextfield, courseStartTimeChoiceBox, courseDayChoiceBox));
+    	   	 
     	courseContainer.getChildren().addAll(courseNameLabel, courseNameTextfield, courseNumberLabel, courseNumberTextfield, 
-    	courseStartTimeLabel, courseStartTimeTextfield, courseEndTimeLabel, courseEndTimeTextfield, courseDayLabel, courseDayTextfield,  done);
+    	courseStartTimeLabel, courseStartTimeChoiceBox, courseDayLabel, courseDayChoiceBox,  done);
     	Scene addCourseScene = new Scene(courseContainer);
     	applicationStage.setScene(addCourseScene);
-    	
-    	//System.out.println("Name: " + courseNameLabel + "UCID: " + courseNumberLabel);
-       	
+    	       	
     }
 
 
