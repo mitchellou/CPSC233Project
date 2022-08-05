@@ -2,11 +2,13 @@ package application;
 	
 import java.io.FileInputStream;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 
 public class Main extends Application {
@@ -21,6 +23,8 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Course Planner");			
 			primaryStage.show();
+			GridPane grid = new GridPane(); 
+			Scene scene1 = new Scene(grid, 800,800);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
