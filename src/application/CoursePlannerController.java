@@ -32,10 +32,7 @@ public class CoursePlannerController {
 	    private Label userIdLabel;
 	 
 	 @FXML
-	 	private Label courseNameLabel;
-	 
-	 @FXML
-	 	private Label studentNameLabel;	 
+	 	private Label courseNameLabel; 
 	 @FXML
 		private GridPane grid;
 	 @FXML 
@@ -148,41 +145,156 @@ public class CoursePlannerController {
 	 	private Label friday5Label;
 	 @FXML
 	 	private Label friday6Label;
+	 @FXML 
+	 	private Rectangle monday8;
+	 @FXML 
+	 	private Rectangle monday9;
+	 @FXML 
+	 	private Rectangle monday10;
+	 @FXML 
+	 	private Rectangle monday11;
+	 @FXML 
+	 	private Rectangle monday12;
+	 @FXML 
+	 	private Rectangle monday1;
+	 @FXML 
+	 	private Rectangle monday2;
+	 @FXML 
+	 	private Rectangle monday3;
+	 @FXML 
+	 	private Rectangle monday4; 
+	 @FXML 
+	 	private Rectangle monday5;
+	 @FXML 
+	 	private Rectangle monday6;
+	 @FXML 
+	 	private Rectangle tuesday8;
+	 @FXML 
+	 	private Rectangle tuesday9;
+	 @FXML 
+	 	private Rectangle tuesday10;
+	 @FXML 
+	 	private Rectangle tuesday11;
+	 @FXML 
+	 	private Rectangle tuesday12;
+	 @FXML 
+	 	private Rectangle tuesday1;
+	 @FXML 
+	 	private Rectangle tuesday2;
+	 @FXML 
+	 	private Rectangle tuesday3;
+	 @FXML 
+	 	private Rectangle tuesday4;
+	 @FXML 
+	 	private Rectangle tuesday5;
+	 @FXML 
+	 	private Rectangle tuesday6;
+	 @FXML 
+	 	private Rectangle wednesday8;
+	 @FXML 
+	 	private Rectangle wednesday9;
+	 @FXML 
+	 	private Rectangle wednesday10;
+	 @FXML 
+	 	private Rectangle wednesday11;
+	 @FXML 
+	 	private Rectangle wednesday12;
+	 @FXML 
+	 	private Rectangle wednesday1;
+	 @FXML 
+	 	private Rectangle wednesday2;
+	 @FXML 
+	 	private Rectangle wednesday3;
+	 @FXML 
+	 	private Rectangle wednesday4;
+	 @FXML 
+	 	private Rectangle wednesday5;
+	 @FXML 
+	 	private Rectangle wednesday6;
+	 @FXML 
+	 	private Rectangle thursday8;
+	 @FXML 
+	 	private Rectangle thursday9;
+	 @FXML 
+	 	private Rectangle thursday10;
+	 @FXML 
+	 	private Rectangle thursday11;
+	 @FXML 
+	 	private Rectangle thursday12;
+	 @FXML 
+	 	private Rectangle thursday1;
+	 @FXML 
+	 	private Rectangle thursday2;
+	 @FXML 
+	 	private Rectangle thursday3;
+	 @FXML 
+	 	private Rectangle thursday4;
+	 @FXML 
+	 	private Rectangle thursday5;
+	 @FXML 
+	 	private Rectangle thursday6;
+	 @FXML 
+	 	private Rectangle friday8;
+	 @FXML 
+	 	private Rectangle friday9;
+	 @FXML 
+	 	private Rectangle friday10;
+	 @FXML 
+	 	private Rectangle friday11;
+	 @FXML 
+	 	private Rectangle friday12;
+	 @FXML 
+	 	private Rectangle friday1;
+	 @FXML 
+	 	private Rectangle friday2;
+	 @FXML 
+	 	private Rectangle friday3;
+	 @FXML 
+	 	private Rectangle friday4;
+	 @FXML 
+	 	private Rectangle friday5;
+	 @FXML 
+	 	private Rectangle friday6;
+	 @FXML 
+	 	private Label studentNameLabel;
+	 @FXML 
+	 	private Label studentNumberLabel;
 	 
 	 
-
-	 
+	
 // This part of the code activates when the user clicks the add personal info button, NOT complete, needs to change the label
 	 // on the main screen.
 	 
-	 void displayInfo(Scene mainScene, TextField inputNameTextField, TextField inputIdTextField ){
+	 void displayInfo(Scene main, TextField inputNameTextField, TextField inputIdTextField ){
 	    	
 	    	String nameEntered = inputNameTextField.getText();
+	    	String numberEntered = inputIdTextField.getText();
 	    	
-	    	System.out.println(nameEntered);
-	    	
-	    	studentNameLabel.setText((String.format("Your overall course grade" + nameEntered)));
-	   
-	    	applicationStage.setScene(mainScene);
+	    	studentNameLabel.setText(nameEntered);
+	    	studentNumberLabel.setText(numberEntered);
+	     
+	    	applicationStage.setScene(main);
 	    	
 	    }
 	 
-	 
-	 
-	 	 
 	 
     @FXML
     void addInfo(ActionEvent enterInfoEvent) {
     	Scene mainScene = applicationStage.getScene();
     	
-    	HBox infoRow = new HBox();
+    	HBox infoRow = new HBox(10);
+    	infoRow.setPadding(new Insets (20,20,20,20));
     	Label inputNameLabel = new Label("Enter your name");
     	TextField inputNameTextField = new TextField();
+    	
     	Label inputIdLabel = new Label("Enter your UCID");
     	TextField inputIdTextField = new TextField();
+    	
     	Button doneButton = new Button("Done");
     	infoRow.getChildren().addAll(inputNameLabel,inputNameTextField,inputIdLabel,inputIdTextField,doneButton);
-    	doneButton.setOnAction(doneEvent -> applicationStage.setScene(mainScene));
+    	doneButton.setOnAction(doneEvent -> displayInfo(mainScene, inputNameTextField, inputIdTextField));
+    	
+    	applicationStage.setScene(mainScene);
     	
  	
     	Scene infoScene = new Scene(infoRow);
@@ -210,109 +322,184 @@ public class CoursePlannerController {
     			monday8Label.setText(courseName + courseNumber);
     			wednesday8Label.setText(courseName + courseNumber);
     			friday8Label.setText(courseName + courseNumber);
+    			
+    			monday8.setVisible(true);
+    			wednesday8.setVisible(true);
+    			friday8.setVisible(true);
     			break;
     		case 9:
     			monday9Label.setText(courseName + courseNumber);
     			wednesday9Label.setText(courseName + courseNumber);
     			friday9Label.setText(courseName + courseNumber);
+    			
+    			monday9.setVisible(true);
+    			wednesday9.setVisible(true);
+    			friday9.setVisible(true);
     			break;
     		case 10:
     			monday10Label.setText(courseName + courseNumber);
     			wednesday10Label.setText(courseName + courseNumber);
     			friday10Label.setText(courseName + courseNumber);
+    			
+    			monday10.setVisible(true);
+    			wednesday10.setVisible(true);
+    			friday10.setVisible(true);
     			break;
     		case 11:
     			monday11Label.setText(courseName + courseNumber);
     			wednesday11Label.setText(courseName + courseNumber);
     			friday11Label.setText(courseName + courseNumber);
+    			
+    			monday11.setVisible(true);
+    			wednesday11.setVisible(true);
+    			friday11.setVisible(true);
     			break;
     		case 12:
     			monday12Label.setText(courseName + courseNumber);
     			wednesday12Label.setText(courseName + courseNumber);
     			friday12Label.setText(courseName + courseNumber);
+    			
+    			monday12.setVisible(true);
+    			wednesday12.setVisible(true);
+    			friday12.setVisible(true);
     			break;
     		case 1:
     			monday1Label.setText(courseName + courseNumber);
     			wednesday1Label.setText(courseName + courseNumber);
     			friday1Label.setText(courseName + courseNumber);
+    			
+    			monday1.setVisible(true);
+    			wednesday1.setVisible(true);
+    			friday1.setVisible(true);
     			break;
     		case 2:
     			monday2Label.setText(courseName + courseNumber);
     			wednesday2Label.setText(courseName + courseNumber);
     			friday2Label.setText(courseName + courseNumber);
+    			
+    			monday2.setVisible(true);
+    			wednesday2.setVisible(true);
+    			friday2.setVisible(true);
     			break;
     		case 3:
     			monday3Label.setText(courseName + courseNumber);
     			wednesday3Label.setText(courseName + courseNumber);
     			friday3Label.setText(courseName + courseNumber);
+    			
+    			monday3.setVisible(true);
+    			wednesday3.setVisible(true);
+    			friday3.setVisible(true);
     			break;
     		case 4:
     			monday4Label.setText(courseName + courseNumber);
     			wednesday4Label.setText(courseName + courseNumber);
     			friday4Label.setText(courseName + courseNumber);
+    			
+    			monday4.setVisible(true);
+    			wednesday4.setVisible(true);
+    			friday4.setVisible(true);
     			break;
     		case 5:
     			monday5Label.setText(courseName + courseNumber);
     			wednesday5Label.setText(courseName + courseNumber);
     			friday5Label.setText(courseName + courseNumber);
+    			
+    			monday5.setVisible(true);
+    			wednesday5.setVisible(true);
+    			friday5.setVisible(true);
     			break;
     		case 6:
     			monday6Label.setText(courseName + courseNumber);
     			wednesday6Label.setText(courseName + courseNumber);
     			friday6Label.setText(courseName + courseNumber);
+    			
+    			monday6.setVisible(true);
+    			wednesday6.setVisible(true);
+    			friday6.setVisible(true);
     			break;
     		}
     	} else {
     		switch(courseStart) {
     		case 8:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday8Label.setText(courseName + courseNumber);
+    			thursday8Label.setText(courseName + courseNumber);
+    			
+    			tuesday8.setVisible(true);
+    			thursday8.setVisible(true);
     			break;
     		case 9:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday9Label.setText(courseName + courseNumber);
+    			thursday9Label.setText(courseName + courseNumber);
+    			
+    			tuesday9.setVisible(true);
+    			thursday9.setVisible(true);
     			break;
     		case 10:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday10Label.setText(courseName + courseNumber);
+    			thursday10Label.setText(courseName + courseNumber);
+    			
+    			tuesday10.setVisible(true);
+    			thursday10.setVisible(true);
     			break;
     		case 11:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday11Label.setText(courseName + courseNumber);
+    			thursday11Label.setText(courseName + courseNumber);
+    			
+    			tuesday11.setVisible(true);
+    			thursday11.setVisible(true);
     			break;
     		case 12:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday12Label.setText(courseName + courseNumber);
+    			thursday12Label.setText(courseName + courseNumber);
+    			
+    			tuesday12.setVisible(true);
+    			thursday12.setVisible(true);
     			break;
     		case 1:
     			tuesday1Label.setText(courseName + courseNumber);
     			thursday1Label.setText(courseName + courseNumber);
+    			
+    			tuesday1.setVisible(true);
+    			thursday1.setVisible(true);
     			break;
     		case 2:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday2Label.setText(courseName + courseNumber);
+    			thursday2Label.setText(courseName + courseNumber);
+    			
+    			tuesday2.setVisible(true);
+    			thursday2.setVisible(true);
     			break;
     		case 3:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday3Label.setText(courseName + courseNumber);
+    			thursday3Label.setText(courseName + courseNumber);
+    			
+    			tuesday3.setVisible(true);
+    			thursday3.setVisible(true);
     			break;
     		case 4:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday4Label.setText(courseName + courseNumber);
+    			thursday4Label.setText(courseName + courseNumber);
+    			
+    			tuesday4.setVisible(true);
+    			thursday4.setVisible(true);
     			break;
     		case 5:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday5Label.setText(courseName + courseNumber);
+    			thursday5Label.setText(courseName + courseNumber);
+    			
+    			tuesday5.setVisible(true);
+    			thursday5.setVisible(true);
     			break;
     		case 6:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday6Label.setText(courseName + courseNumber);
+    			thursday6Label.setText(courseName + courseNumber);
+    			
+    			tuesday6.setVisible(true);
+    			thursday6.setVisible(true);
     			break;
     			
     		}
     	}
-    	
-    	
     	
     	 
     	applicationStage.setScene(main);
