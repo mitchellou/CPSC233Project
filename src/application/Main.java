@@ -19,7 +19,7 @@ public class Main extends Application {
 			AnchorPane root = loader.load(new FileInputStream("src/application/ProjectScene.fxml"));
 			CoursePlannerController controller = (CoursePlannerController)loader.getController();
 			controller.applicationStage = primaryStage;
-			Scene scene = new Scene(root,800,750);	
+			Scene scene = new Scene(root,800,770);	
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Course Planner");			
 			primaryStage.show();
