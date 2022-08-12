@@ -171,6 +171,7 @@
          <children>
             <Button contentDisplay="CENTER" layoutX="261.0" mnemonicParsing="false" onAction="#addCourse" prefHeight="25.0" prefWidth="122.0" text="Add Course Info" />
             <Button layoutX="442.0" mnemonicParsing="false" onAction="#addInfo" prefHeight="25.0" prefWidth="122.0" text="Add Personal Info" />
+            <Label fx:id="totalTimeLabel" layoutX="25.0" layoutY="4.0" />
          </children>
       </Pane>
       <Label fx:id="eightAm" layoutX="10.0" layoutY="192.0" text="8AM">
@@ -438,6 +439,5 @@
          <font>
             <Font size="13.0" />
          </font></Label>
-      <Button fx:id="totalCourseTimeButton" layoutX="70.0" layoutY="113.0" mnemonicParsing="false" text="Get Total Course Time" />
    </children>
 </AnchorPane>
