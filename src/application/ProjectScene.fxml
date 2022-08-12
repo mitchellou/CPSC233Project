@@ -438,5 +438,6 @@
          <font>
             <Font size="13.0" />
          </font></Label>
+      <Button fx:id="totalCourseTimeButton" layoutX="70.0" layoutY="113.0" mnemonicParsing="false" text="Get Total Course Time" />
    </children>
 </AnchorPane>

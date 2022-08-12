@@ -22,7 +22,8 @@ import javafx.stage.Stage;
 public class CoursePlannerController {
 	Stage applicationStage;
 	
-	
+	 @FXML
+		private Button totalCourseTimeButton; 
 	 @FXML
 	    private ChoiceBox<String> SemesterBox;
 	 
@@ -255,6 +256,8 @@ public class CoursePlannerController {
 	 	private Rectangle friday5;
 	 @FXML 
 	 	private Rectangle friday6;
+	 @FXML
+	 private Label error;
 	 @FXML 
 	 	private Label studentNameLabel;
 	 @FXML 
@@ -303,9 +306,17 @@ public class CoursePlannerController {
     		
     	}
     	
+    int totalTime = 0;
  
     void validCourse(Scene main, TextField courseNameTextfield, TextField courseNumberTextfield, ChoiceBox<Integer> courseStartTimeChoiceBox, ChoiceBox<String> courseDayChoiceBox) {
     	
+    	Course courseEntered = new Course(courseNameTextfield.getText(), courseNumberTextfield.getText(), courseStartTimeChoiceBox.getValue(), courseDayChoiceBox.getValue());
+    	
+    	//System.out.println(courseEntered.getTotalCourseTime());
+    	
+    	
+    	totalTime += courseEntered.getTotalCourseTime();
+    	System.out.println("total time = " + totalTime);
     	String courseName = courseNameTextfield.getText();
     	String courseNumber = courseNumberTextfield.getText();
     	int courseStart = courseStartTimeChoiceBox.getValue();
@@ -319,99 +330,99 @@ public class CoursePlannerController {
     	if(courseDay == "MWF") {
     		switch (courseStart) {
     		case 8:
-    			monday8Label.setText(courseName + courseNumber);
-    			wednesday8Label.setText(courseName + courseNumber);
-    			friday8Label.setText(courseName + courseNumber);
+    			monday8Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday8Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday8Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday8.setVisible(true);
     			wednesday8.setVisible(true);
     			friday8.setVisible(true);
     			break;
     		case 9:
-    			monday9Label.setText(courseName + courseNumber);
-    			wednesday9Label.setText(courseName + courseNumber);
-    			friday9Label.setText(courseName + courseNumber);
+    			monday9Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday9Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday9Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday9.setVisible(true);
     			wednesday9.setVisible(true);
     			friday9.setVisible(true);
     			break;
     		case 10:
-    			monday10Label.setText(courseName + courseNumber);
-    			wednesday10Label.setText(courseName + courseNumber);
-    			friday10Label.setText(courseName + courseNumber);
+    			monday10Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday10Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday10Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday10.setVisible(true);
     			wednesday10.setVisible(true);
     			friday10.setVisible(true);
     			break;
     		case 11:
-    			monday11Label.setText(courseName + courseNumber);
-    			wednesday11Label.setText(courseName + courseNumber);
-    			friday11Label.setText(courseName + courseNumber);
+    			monday11Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday11Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday11Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday11.setVisible(true);
     			wednesday11.setVisible(true);
     			friday11.setVisible(true);
     			break;
     		case 12:
-    			monday12Label.setText(courseName + courseNumber);
-    			wednesday12Label.setText(courseName + courseNumber);
-    			friday12Label.setText(courseName + courseNumber);
+    			monday12Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday12Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday12Label.setText(courseName.toUpperCase()+ courseNumber);
     			
     			monday12.setVisible(true);
     			wednesday12.setVisible(true);
     			friday12.setVisible(true);
     			break;
     		case 1:
-    			monday1Label.setText(courseName + courseNumber);
-    			wednesday1Label.setText(courseName + courseNumber);
-    			friday1Label.setText(courseName + courseNumber);
+    			monday1Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday1Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday1Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday1.setVisible(true);
     			wednesday1.setVisible(true);
     			friday1.setVisible(true);
     			break;
     		case 2:
-    			monday2Label.setText(courseName + courseNumber);
-    			wednesday2Label.setText(courseName + courseNumber);
-    			friday2Label.setText(courseName + courseNumber);
+    			monday2Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday2Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday2Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday2.setVisible(true);
     			wednesday2.setVisible(true);
     			friday2.setVisible(true);
     			break;
     		case 3:
-    			monday3Label.setText(courseName + courseNumber);
-    			wednesday3Label.setText(courseName + courseNumber);
-    			friday3Label.setText(courseName + courseNumber);
+    			monday3Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday3Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday3Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday3.setVisible(true);
     			wednesday3.setVisible(true);
     			friday3.setVisible(true);
     			break;
     		case 4:
-    			monday4Label.setText(courseName + courseNumber);
-    			wednesday4Label.setText(courseName + courseNumber);
-    			friday4Label.setText(courseName + courseNumber);
+    			monday4Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday4Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday4Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday4.setVisible(true);
     			wednesday4.setVisible(true);
     			friday4.setVisible(true);
     			break;
     		case 5:
-    			monday5Label.setText(courseName + courseNumber);
-    			wednesday5Label.setText(courseName + courseNumber);
-    			friday5Label.setText(courseName + courseNumber);
+    			monday5Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday5Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday5Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday5.setVisible(true);
     			wednesday5.setVisible(true);
     			friday5.setVisible(true);
     			break;
     		case 6:
-    			monday6Label.setText(courseName + courseNumber);
-    			wednesday6Label.setText(courseName + courseNumber);
-    			friday6Label.setText(courseName + courseNumber);
+    			monday6Label.setText(courseName.toUpperCase() + courseNumber);
+    			wednesday6Label.setText(courseName.toUpperCase() + courseNumber);
+    			friday6Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			monday6.setVisible(true);
     			wednesday6.setVisible(true);
@@ -421,78 +432,78 @@ public class CoursePlannerController {
     	} else {
     		switch(courseStart) {
     		case 8:
-    			tuesday8Label.setText(courseName + courseNumber);
-    			thursday8Label.setText(courseName + courseNumber);
+    			tuesday8Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday8Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday8.setVisible(true);
     			thursday8.setVisible(true);
     			break;
     		case 9:
-    			tuesday9Label.setText(courseName + courseNumber);
-    			thursday9Label.setText(courseName + courseNumber);
+    			tuesday9Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday9Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday9.setVisible(true);
     			thursday9.setVisible(true);
     			break;
     		case 10:
-    			tuesday10Label.setText(courseName + courseNumber);
-    			thursday10Label.setText(courseName + courseNumber);
+    			tuesday10Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday10Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday10.setVisible(true);
     			thursday10.setVisible(true);
     			break;
     		case 11:
-    			tuesday11Label.setText(courseName + courseNumber);
-    			thursday11Label.setText(courseName + courseNumber);
+    			tuesday11Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday11Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday11.setVisible(true);
     			thursday11.setVisible(true);
     			break;
     		case 12:
-    			tuesday12Label.setText(courseName + courseNumber);
-    			thursday12Label.setText(courseName + courseNumber);
+    			tuesday12Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday12Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday12.setVisible(true);
     			thursday12.setVisible(true);
     			break;
     		case 1:
-    			tuesday1Label.setText(courseName + courseNumber);
-    			thursday1Label.setText(courseName + courseNumber);
+    			tuesday1Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday1Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday1.setVisible(true);
     			thursday1.setVisible(true);
     			break;
     		case 2:
-    			tuesday2Label.setText(courseName + courseNumber);
-    			thursday2Label.setText(courseName + courseNumber);
+    			tuesday2Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday2Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday2.setVisible(true);
     			thursday2.setVisible(true);
     			break;
     		case 3:
-    			tuesday3Label.setText(courseName + courseNumber);
-    			thursday3Label.setText(courseName + courseNumber);
+    			tuesday3Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday3Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday3.setVisible(true);
     			thursday3.setVisible(true);
     			break;
     		case 4:
-    			tuesday4Label.setText(courseName + courseNumber);
-    			thursday4Label.setText(courseName + courseNumber);
+    			tuesday4Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday4Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday4.setVisible(true);
     			thursday4.setVisible(true);
     			break;
     		case 5:
-    			tuesday5Label.setText(courseName + courseNumber);
-    			thursday5Label.setText(courseName + courseNumber);
+    			tuesday5Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday5Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday5.setVisible(true);
     			thursday5.setVisible(true);
     			break;
     		case 6:
-    			tuesday6Label.setText(courseName + courseNumber);
-    			thursday6Label.setText(courseName + courseNumber);
+    			tuesday6Label.setText(courseName.toUpperCase() + courseNumber);
+    			thursday6Label.setText(courseName.toUpperCase() + courseNumber);
     			
     			tuesday6.setVisible(true);
     			thursday6.setVisible(true);
@@ -528,6 +539,7 @@ public class CoursePlannerController {
     	ChoiceBox<String> courseDayChoiceBox = new ChoiceBox();
    	
     	courseDayChoiceBox.getItems().addAll("MWF", "TTh");
+    	
     	 	
     	Button done = new Button("Done");
     	done.setOnAction(doneEvent -> validCourse(main, courseNameTextfield, courseNumberTextfield, courseStartTimeChoiceBox, courseDayChoiceBox));
