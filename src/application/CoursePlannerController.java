@@ -23,7 +23,7 @@ public class CoursePlannerController {
 	Stage applicationStage;
 	
 	 @FXML
-		private Button totalCourseTimeButton; 
+		private Label totalTimeLabel; 
 	 @FXML
 	    private ChoiceBox<String> SemesterBox;
 	 
@@ -256,8 +256,6 @@ public class CoursePlannerController {
 	 	private Rectangle friday5;
 	 @FXML 
 	 	private Rectangle friday6;
-	 @FXML
-	 private Label error;
 	 @FXML 
 	 	private Label studentNameLabel;
 	 @FXML 
@@ -308,26 +306,22 @@ public class CoursePlannerController {
     	
     int totalTime = 0;
  
-    void validCourse(Scene main, TextField courseNameTextfield, TextField courseNumberTextfield, ChoiceBox<Integer> courseStartTimeChoiceBox, ChoiceBox<String> courseDayChoiceBox) {
+    
+    
+    void validCourse(Scene main, TextField courseNameTextfield, TextField courseNumberTextfield, ChoiceBox<Integer> courseStartTimeChoiceBox, ChoiceBox<String> courseDayChoiceBox, Label errorLabel) {
     	
-    	Course courseEntered = new Course(courseNameTextfield.getText(), courseNumberTextfield.getText(), courseStartTimeChoiceBox.getValue(), courseDayChoiceBox.getValue());
+    	Course courseEntered = new Course(courseNameTextfield.getText(), courseNumberTextfield.getText(), courseStartTimeChoiceBox.getValue(), courseDayChoiceBox.getValue());  	
     	
-    	//System.out.println(courseEntered.getTotalCourseTime());
-    	
-    	
-    	totalTime += courseEntered.getTotalCourseTime();
-    	System.out.println("total time = " + totalTime);
     	String courseName = courseNameTextfield.getText();
     	String courseNumber = courseNumberTextfield.getText();
     	int courseStart = courseStartTimeChoiceBox.getValue();
     	String courseDay = courseDayChoiceBox.getValue();
-    	
+    	    	
     	if(courseName.length() != 4 || courseNumber.length() != 3) {
-    		System.out.println("Invalid Course Information. Make sure Course Name is 4 letters and Course Number is 3 digits." );
-    	} 
-    	
-    	
-    	if(courseDay == "MWF") {
+    		errorLabel.setText("Invalid Course Name or Number." + "\nCourse name should be 4 letters" + "\nCourse number should be 3 digits.");
+    	} else if(courseDay == "MWF") {
+    		totalTime += courseEntered.getTotalCourseTime();
+        	totalTimeLabel.setText("Total Course Time for the week is " + totalTime + " hours");
     		switch (courseStart) {
     		case 8:
     			monday8Label.setText(courseName.toUpperCase() + courseNumber);
@@ -429,7 +423,10 @@ public class CoursePlannerController {
     			friday6.setVisible(true);
     			break;
     		}
+    		applicationStage.setScene(main);
     	} else {
+    		totalTime += courseEntered.getTotalCourseTime();
+        	totalTimeLabel.setText("Total Course Time for the week is " + totalTime + " hours");
     		switch(courseStart) {
     		case 8:
     			tuesday8Label.setText(courseName.toUpperCase() + courseNumber);
@@ -510,10 +507,11 @@ public class CoursePlannerController {
     			break;
     			
     		}
+    		applicationStage.setScene(main);
     	}
     	
     	 
-    	applicationStage.setScene(main);
+    	
 		
     }
     
@@ -521,8 +519,10 @@ public class CoursePlannerController {
     void addCourse(ActionEvent addCourseEvent) {
     	Scene main = applicationStage.getScene();
     	
-    	HBox courseContainer = new HBox(10);
-    	courseContainer.setPadding(new Insets (20,20,20,20));
+    	VBox courseContainer = new VBox(10);
+    	courseContainer.setPrefHeight(360);
+    	courseContainer.setPrefWidth(250);
+    	courseContainer.setPadding(new Insets (10,10,10,10));
     	Label courseNameLabel = new Label("Enter Course Name");
     	TextField courseNameTextfield = new TextField();
     	
@@ -537,15 +537,19 @@ public class CoursePlannerController {
     	Label courseDayLabel = new Label("on");
     	
     	ChoiceBox<String> courseDayChoiceBox = new ChoiceBox();
-   	
+    	
+    	Label errorLabel = new Label("");
+    	errorLabel.setTextFill(Color.RED);
+    	
     	courseDayChoiceBox.getItems().addAll("MWF", "TTh");
     	
     	 	
     	Button done = new Button("Done");
-    	done.setOnAction(doneEvent -> validCourse(main, courseNameTextfield, courseNumberTextfield, courseStartTimeChoiceBox, courseDayChoiceBox));
+    	done.setOnAction(doneEvent -> validCourse(main, courseNameTextfield, courseNumberTextfield, courseStartTimeChoiceBox, courseDayChoiceBox, errorLabel));
     	   	 
     	courseContainer.getChildren().addAll(courseNameLabel, courseNameTextfield, courseNumberLabel, courseNumberTextfield, 
-    	courseStartTimeLabel, courseStartTimeChoiceBox, courseDayLabel, courseDayChoiceBox,  done);
+    	courseStartTimeLabel, courseStartTimeChoiceBox, courseDayLabel, courseDayChoiceBox, done, errorLabel);
+    	
     	Scene addCourseScene = new Scene(courseContainer);
     	applicationStage.setScene(addCourseScene);
     	       	
